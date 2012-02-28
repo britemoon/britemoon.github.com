@@ -9,8 +9,8 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Jekyll Bootstrap
-tagline: Site Tagline
+title : 现在即是未来
+tagline: 生命可以浪费在美好的事物之上 – WE LIKE IT
 author :
   name : Chaous Nie
   email : chaous@sar4.com
@@ -85,7 +85,7 @@ JB :
     livefyre :
       site_id : 123
     intensedebate :
-      account : 123abc
+      account : napoleonu
     facebook :
       appid : 123
       num_posts: 5
