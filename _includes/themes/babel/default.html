@@ -69,25 +69,16 @@
             <div class="inner"><a href="/notifications" class="fade">0 条未读提醒</a></div>
         </div>
         <div class="sep20"></div>          
-        <div class="box">
-            <div class="inner">
-                <span class="fade">肯德基 24 小时外卖热线</span>
-                <div class="sep5"></div>
-                <span class="chevron">?</span> <strong class="bigger"><a href="http://www.4008823823.com.cn/" target="_blank">4008-823-823</a></strong>
-                <div class="sep10"></div>
-                <span class="fade">麦当劳 24 小时外卖热线</span>
-                <div class="sep5"></div>
-                <span class="chevron">?</span> <strong class="bigger"><a href="http://www.mcdonalds.com.cn/24/takeaway.aspx" target="_blank">4008-517-517</a></strong>
-                <style type="text/css">
-                #Wrapper {
-                background: #7ba4e2 url("http://static.v2ex.com/bgs/night.jpg") repeat-x 50% 0;
-                }
-                .box {
-                background-color: #f5f5f9;
-                }
-                </style>
-            </div>
-        </div>
+		<div class="box">
+			<div class="cell"><div class="fr"></div>
+				<span class="fade">Categories</span>
+			</div>
+			<div class="inner">
+			{% for category in site.categories %} 
+			  <a  id="{{ category[0] }}-ref" href="/categories.html#{{ category[0] }}-ref" class="item_node">{{ category[0] | join: "/" }}</a>
+			{% endfor %}
+			</div>
+		</div>
         <div class="sep20"></div>       
         <div class="box">
             <div class="inner" align="center">
@@ -119,19 +110,19 @@
                 <div class="inner"><div class="fr" align="right"><a href="/favorite/topic/23365?t=919689136f0f42f686017d333dfc5bea" class="op">加入收藏</a> &nbsp;<a href="#;" onclick="window.open('https://twitter.com/share?url=http://www.v2ex.com/t/23365&related=v2ex&hashtags=afterdark&text=20111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'twitter.com');" class="op">Tweet</a> &nbsp;<a href="#;" onclick="window.open('http://shuo.douban.com/!service/share?href=http://www.v2ex.com/t/23365&name=V2EX%20-%2020111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'douban.com');" class="op">Douban</a> &nbsp;<a href="#;" onclick="window.open('http://service.weibo.com/share/share.php?url=http://www.v2ex.com/t/23365&title=V2EX%20-%2020111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'weibo.com');" class="op">Weibo</a></div> &nbsp; </div>
             </div>
             <div class="sep20"></div>
-            <div class="box"><form action="/t/23365" disabled method="post" onsubmit="return v()">
+            <div class="box"><form action="" disabled method="post" onsubmit="return v()">
                 <div class="cell"><div class="fr fade">? <a href="#_top" class="dark">回到顶部</a></div>
                 <span class="fade">Add a Reply Now</span>
                 
                 </div>
                 <div class="cell">
-                    <textarea class="mll" name="content" id="reply_content" style="height: 200px;" onkeyup="c();"></textarea>
+                    <textarea class="mll" name="content" id="reply_content" style="height: 200px;" disabled onkeyup="c();"></textarea>
                     <div class="sep10"></div>
                     <div class="fr fade" id="e"></div>
-                    <input type="submit" class="super normal button" value="Send" />
+                    <input type="submit" class="super normal button" disabled value="Send" />
                 </div></form>
                 
-                <div class="inner"><div class="fr" style="font-size: 12px; margin-left: 20px;"><a href="/">← V2EX</a></div>? Please avoid posting pointless replies, it's always great to save everyone's precious time.</div>
+                <div class="inner"><div class="fr" style="font-size: 12px; margin-left: 20px;"><a href="/">← Home</a></div>? Please avoid posting pointless replies, it's always great to save everyone's precious time.</div>
             </div>
             
         </div>
