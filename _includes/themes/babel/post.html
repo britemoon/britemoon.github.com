@@ -2,20 +2,24 @@
   <div class="span10">
     {{ content }}
     <hr>
-    <div class="pagination">
-      <ul>
-      {% if page.previous %}
-        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
-      {% else %}
-        <li class="prev disabled"><a>&larr; Previous</a></li>
-      {% endif %}
-        <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-      {% if page.next %}
-        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
-      {% else %}
-        <li class="next disabled"><a>Next &rarr;</a>
-      {% endif %}
-      </ul>
-    </div>
+	<div class="inner">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		  {% if page.previous %}
+			<td width="100" align="left"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}" class="super normal button">Previous</a><div class="sep5"></div></td>
+		  {% else %}
+			<td width="100" align="left"></td>
+		  {% endif %}
+			<td width="auto" align="center" valign="middle"><strong style="font-size: 13px"><span class="fade"> </span><span class="snow"> </span></strong></td>
+		  {% if page.next %}
+			<td width="100" align="right"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}" class="super normal button">Next</a><div class="sep5"></div></td>
+		  {% else %}
+			<td width="100" align="right"></td>
+		  {% endif %}
+	</tr></tbody></table>
+	</div>
   </div>
 </div>
+
+
+
