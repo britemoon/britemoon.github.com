@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<div id="Top"><a href="#;" name="_top"></a>
+<div id="Top" style="background-image: url('{{ ASSET_PATH }}/img/bg_top_light.png')"><a href="#;" name="_top"></a>
     <div id="TopMain">
         <a href="/"><img src="http://v2excdn.b0.upaiyun.com/static/img/logo_20110809.png" border="0" style="display: block; float: left; margin-top: 9px; margin-left: 20px;" /></a>
         <div id="Navigation">
@@ -43,30 +43,16 @@
             <div class="cell">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
-                        <td width="48" valign="top"><a href="/member/napoleonu"><img src="http://v2excdn.b0.upaiyun.com/avatars/normal/1807.png?r=1330198281" border="0" /></a></td>
+                        <td width="48" valign="top"><a href="/"><img src="{{ ASSET_PATH }}/img/avatar.png" border="0" /></a></td>
                         <td width="10" valign="top"></td>
-                        <td width="auto" align="left"><span class="bigger"><a href="/member/napoleonu">napoleonu</a></span>
+                        <td width="auto" align="left"><span class="bigger"><a href="http://twitter.com/{{ site.author.twitter }}" target="_blank">{{ site.author.twitter }}</a></span>
                             <div class="sep5"></div>
-                            <span class="fade">生命可以浪费在美好的事物之上 – I LIKE IT</span>
+                            <span class="fade">{{ site.tagline }}</span>
                         </td>
                     </tr>
                 </table>
                 <div class="sep10"></div>
-                <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                    <tr>
-                        <td width="33%" align="center"><a href="/my/nodes" class="dark" style="display: block;"><span class="bigger">5</span><div class="sep3"></div><span class="fade">节点收藏</span></a></td>
-                        <td width="34%" style="border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);" align="center"><a href="/my/topics" class="dark" style="display: block;"><span class="bigger">85</span><div class="sep3"></div><span class="fade">主题收藏</span></a></td>
-                        <td width="33%" align="center"><a href="/my/following" class="dark" style="display: block;"><span class="bigger">6</span><div class="sep3"></div><span class="fade">特别关注</span></a></td>
-                    </tr>
-                </table>
-                <div class="sep10"></div>
-                <form method="post" action="/twitter/tweet">
-                <textarea class="mlt" maxlength="140" name="status"></textarea>
-                <div class="sep10"></div>
-                <div align="right"><input type="submit" value="Tweet" class="super normal button" /></div>
-                </form>
             </div>
-            <div class="inner"><a href="/notifications" class="fade">0 条未读提醒</a></div>
         </div>
         <div class="sep20"></div>          
 		<div class="box">
@@ -118,7 +104,7 @@
 				<div class="content topic_content">{{ content }}</div>
 			</div>
 			<div class="inner">
-				<div class="fr" align="right">{% unless page.tags == empty %}{% assign tags_list = page.tags %}{% include JB/tags_list2 %}{% endunless %}</div>
+				<div class="fr" align="right">{% unless page.tags == empty %}{% assign tags_list = page.tags %}{% include JB/tags_list2 %}{% endunless %}</div>&nbsp;
 			</div>
 		</div>
 		<div class="sep20"></div>
@@ -126,17 +112,17 @@
 			<div class="inner">
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">
 				<tbody><tr>
-					  {% if page.previous %}
-						<td width="100" align="left"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}" class="super normal button">Previous</a><div class="sep5"></div></td>
-					  {% else %}
-						<td width="100" align="left"></td>
-					  {% endif %}
-						<td width="auto" align="center" valign="middle"><strong style="font-size: 13px"><span class="fade"> </span><span class="snow"> </span></strong></td>
-					  {% if page.next %}
-						<td width="100" align="right"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}" class="super normal button">Next</a><div class="sep5"></div></td>
-					  {% else %}
-						<td width="100" align="right"></td>
-					  {% endif %}
+					{% if page.previous %}
+					<td width="100" align="left"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}" class="super normal button">Previous</a><div class="sep5"></div></td>
+					{% else %}
+					<td width="100" align="left"></td>
+					{% endif %}
+					<td width="auto" align="center" valign="middle"><strong style="font-size: 13px"><span class="fade"> </span><span class="snow"> </span></strong></td>
+					{% if page.next %}
+					<td width="100" align="right"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}" class="super normal button">Next</a><div class="sep5"></div></td>
+					{% else %}
+					<td width="100" align="right"></td>
+					{% endif %}
 				</tr></tbody></table>
 			</div>
 		</div>  
