@@ -1,59 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="True" name="HandheldFriendly" />
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0; name='viewport'" />
     <title>{{ page.title }}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-    <meta name="author" content="{{ site.author.name }}">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="{{ ASSET_PATH }}/css/1.4.0/bootstrap.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<meta name="author" content="{{ site.author.name }}">
+	<link href="{{ ASSET_PATH }}/css/default.css" media="screen" type="text/css"   rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
-  </head>
+    <link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/napoleonu" />
+    <link rel="canonical" href="http://sar4.com" />
+    <meta name="alexaVerifyID" content="OFc8dmwZo7ttU4UCnDh1rKDaaaa" />
+    <meta name="google-site-verification" content="LM_cJR94XJIqcYJeOCscGVMWdaRUvmyz6cVOqaaaaaa" />
+    <meta property="wb:webmaster" content="f2f4cb229baaaaaa" />
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+</head>
 
-  <body>
-
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-          <ul class="nav">
-            {% assign pages_list = site.pages %}
-            {% assign group = 'navigation' %}
-            {% include JB/pages_list %}
-          </ul>
+<body>
+<div id="Top"><a href="#;" name="_top"></a>
+    <div id="TopMain">
+        <a href="/"><img src="http://v2excdn.b0.upaiyun.com/static/img/logo_20110809.png" border="0" style="display: block; float: left; margin-top: 9px; margin-left: 20px;" /></a>
+        <div id="Navigation">
+            <ul>
+                <li><a href="{{ HOME_PATH }}" class="top">{{ site.title }}</a></li>
+				{% assign pages_list = site.pages %}
+				{% assign group = 'navigation' %}
+				{% include JB/pages_list %}
+            </ul>
         </div>
-      </div>
+        <div id="Search"><form onsubmit="return dispatch()"><div style="width: 276px; height: 28px; background-image: url('/static/img/qbar.png'); background-repeat: no-repeat; display: inline-block;"><input type="text" maxlength="40" name="q" id="q" value="" /></div></form></div>
     </div>
+</div>
 
-    <div class="container">
-
-      <div class="content">
-        {{ content }}
-      </div>
-
-      <footer>
-        <p>&copy; {{ site.author.name }} 2012 
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
-    </div> <!-- /container -->
-
-    {% include JB/analytics %}
-  </body>
+<div id="Wrapper">
+    <div id="Main">
+    <div id="Sidebar"></div>
+    <div id="Rightbar">
+        <div class="box">
+            <div class="cell">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                        <td width="48" valign="top"><a href="/member/napoleonu"><img src="http://v2excdn.b0.upaiyun.com/avatars/normal/1807.png?r=1330198281" border="0" /></a></td>
+                        <td width="10" valign="top"></td>
+                        <td width="auto" align="left"><span class="bigger"><a href="/member/napoleonu">napoleonu</a></span>
+                            <div class="sep5"></div>
+                            <span class="fade">生命可以浪费在美好的事物之上 – I LIKE IT</span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="sep10"></div>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                        <td width="33%" align="center"><a href="/my/nodes" class="dark" style="display: block;"><span class="bigger">5</span><div class="sep3"></div><span class="fade">节点收藏</span></a></td>
+                        <td width="34%" style="border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);" align="center"><a href="/my/topics" class="dark" style="display: block;"><span class="bigger">85</span><div class="sep3"></div><span class="fade">主题收藏</span></a></td>
+                        <td width="33%" align="center"><a href="/my/following" class="dark" style="display: block;"><span class="bigger">6</span><div class="sep3"></div><span class="fade">特别关注</span></a></td>
+                    </tr>
+                </table>
+                <div class="sep10"></div>
+                <form method="post" action="/twitter/tweet">
+                <textarea class="mlt" maxlength="140" name="status"></textarea>
+                <div class="sep10"></div>
+                <div align="right"><input type="submit" value="Tweet" class="super normal button" /></div>
+                </form>
+            </div>
+            <div class="inner"><a href="/notifications" class="fade">0 条未读提醒</a></div>
+        </div>
+        <div class="sep20"></div>          
+        <div class="box">
+            <div class="inner">
+                <span class="fade">肯德基 24 小时外卖热线</span>
+                <div class="sep5"></div>
+                <span class="chevron">?</span> <strong class="bigger"><a href="http://www.4008823823.com.cn/" target="_blank">4008-823-823</a></strong>
+                <div class="sep10"></div>
+                <span class="fade">麦当劳 24 小时外卖热线</span>
+                <div class="sep5"></div>
+                <span class="chevron">?</span> <strong class="bigger"><a href="http://www.mcdonalds.com.cn/24/takeaway.aspx" target="_blank">4008-517-517</a></strong>
+                <style type="text/css">
+                #Wrapper {
+                background: #7ba4e2 url("http://static.v2ex.com/bgs/night.jpg") repeat-x 50% 0;
+                }
+                .box {
+                background-color: #f5f5f9;
+                }
+                </style>
+            </div>
+        </div>
+        <div class="sep20"></div>       
+        <div class="box">
+            <div class="inner" align="center">
+                <div style="width: 240px; text-align: left" >
+                    <span style="font-weight: bold; font-size: 10px; color: #e2e2e2;">Sponsored by</span>
+                    <div class="sep10"></div>
+                    <a href="http://3g.163.com/links/3482" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', '3g.163.com');"><img src="http://static.v2ex.com/banners/m.163.com_01.png" border="0" width="120" height="90" alt="网易应用中心" /></a>
+                    <div class="sep5"></div>
+                    <span style="font-size: 11px; color: #666;">
+                        <strong style="color: #000;"><a href="http://3g.163.com/links/3482" class="black" onClick="recordOutboundLink(this, 'Outbound Links', 'm.163.com');" target="_blank">网易应用中心</a></strong><div class="sep3"></div><span style="font-size: 12px;">每日限免、冰点降价，网罗最新最全的精品应用，为用户打造最优质的应用下载平台！</span>
+                    </span>
+                    <div class="sep3"></div>
+                    <small class="fade">Promoted by <a href="http://m.163.com/" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', 'm.163.com');">网易应用中心</a></small>
+                </div>
+            </div>
+        </div> 
+    </div>
+        
+        <div id="Content">
+            <div class="box">
+                <div class="cell" style="min-height: 73px;">
+                    <div class="fr snow" style="padding-left: 10px; padding-bottom: 10px;"><a href="/member/napoleonu"><img src="http://v2excdn.b0.upaiyun.com/avatars/large/1807.png?r=1330198281" border="0" /></a></div>
+                    <span class="bigger"><a href="/">V2EX</a> <span class="chevron">&nbsp;?&nbsp;</span> <a href="/go/afterdark">天黑以后</a></span>
+                    <h1>20111213 午夜俱乐部</h1>
+                    <small class="fade">By <a href="/member/napoleonu" class="dark">napoleonu</a> at 2 months, 2 weeks ago, 525 hits</small>
+                </div>
+                <div class="inner">
+                    <div class="content topic_content">{{ content }}</div>
+                </div>
+                <div class="inner"><div class="fr" align="right"><a href="/favorite/topic/23365?t=919689136f0f42f686017d333dfc5bea" class="op">加入收藏</a> &nbsp;<a href="#;" onclick="window.open('https://twitter.com/share?url=http://www.v2ex.com/t/23365&related=v2ex&hashtags=afterdark&text=20111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'twitter.com');" class="op">Tweet</a> &nbsp;<a href="#;" onclick="window.open('http://shuo.douban.com/!service/share?href=http://www.v2ex.com/t/23365&name=V2EX%20-%2020111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'douban.com');" class="op">Douban</a> &nbsp;<a href="#;" onclick="window.open('http://service.weibo.com/share/share.php?url=http://www.v2ex.com/t/23365&title=V2EX%20-%2020111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'weibo.com');" class="op">Weibo</a></div> &nbsp; </div>
+            </div>
+            <div class="sep20"></div>
+            <div class="box">
+                <div class="cell"><div class="fr"><a href="/t/23365?r=1">Newer Replies First</a> &nbsp;<span class="snow">|</span>&nbsp; <a href="/t/23365?f=1">Just Topic Creator</a></div><span class="fade">3 replies &nbsp;<span class="snow">|</span>&nbsp; Till 2011-12-13 0:56:50 AM</span></div>
+                <div id="replies">
+                    <div class="cell reply from_1807">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <td width="48" valign="top"><a href="/member/napoleonu"><img src="http://v2excdn.b0.upaiyun.com/avatars/normal/1807.png?r=1330198281" border="0" /></a></td>
+                                <td width="10"></td>
+                                <td width="auto" valign="top">
+                                <div class="fr" id="reply_190879_buttons">
+                                    <strong><small class="snow">#1 - 2 months, 2 weeks ago &nbsp; <img src="/static/img/reply.png" align="absmiddle" border="0" alt="回复 napoleonu" onclick="replyOne('napoleonu')" class="clickable" /><span class="ops"></span></small></strong>
+                                </div>
+                                <div class="sep3"></div>
+                                <strong><a href="/member/napoleonu" class="dark">napoleonu</a></strong>
+                                <div class="sep5"></div>
+                                <div class="content reply_content">才看到11.12.13哈，去年10.11.12貌似有大事发生 <a href="http://www.v2ex.com/t/2991" target="_blank">http://www.v2ex.com/t/2991</a></div>
+                                </td>
+                        </table>
+                    </div>
+                    <div class="cell reply from_7939">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <td width="48" valign="top"><a href="/member/alexzhan"><img src="http://web.me.com/v2ex.livid/v2ex/avatars/3/normal/7939.png?r=1304092269" border="0" /></a></td>
+                                <td width="10"></td>
+                                <td width="auto" valign="top">
+                                <div class="fr" id="reply_190886_buttons">
+                                    <strong><small class="snow">#2 - 2 months, 2 weeks ago &nbsp; <img src="/static/img/reply.png" align="absmiddle" border="0" alt="回复 alexzhan" onclick="replyOne('alexzhan')" class="clickable" /><span class="ops"></span></small></strong>
+                                </div>
+                                <div class="sep3"></div>
+                                <strong><a href="/member/alexzhan" class="dark">alexzhan</a></strong>
+                                <div class="sep5"></div>
+                                <div class="content reply_content">在看learning python，希望系统性地学下python，知其然知其所以然。
+                                <br />今天也看了下scala相关的东西。</div>
+                                </td>
+                        </table>
+                    </div>
+                    <div class="inner reply from_2140">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <td width="48" valign="top"><a href="/member/myrual"><img src="http://web.me.com/v2ex.livid/v2ex/avatars/1/normal/2140.png?r=1329145376" border="0" /></a></td>
+                                <td width="10"></td>
+                                <td width="auto" valign="top">
+                                <div class="fr" id="reply_190895_buttons">
+                                    <strong><small class="snow">#3 - 2 months, 2 weeks ago &nbsp; <img src="/static/img/reply.png" align="absmiddle" border="0" alt="回复 myrual" onclick="replyOne('myrual')" class="clickable" /><span class="ops"></span></small></strong>
+                                </div>
+                                <div class="sep3"></div>
+                                <strong><a href="/member/myrual" class="dark">myrual</a></strong>
+                                <div class="sep5"></div>
+                                <div class="content reply_content">把趋势线画好了。似乎和以前用PYthon画的结果差10多个点。</div>
+                                </td>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="sep20"></div>
+            <div class="box"><form action="/t/23365" method="post" onsubmit="return v()">
+                <div class="cell"><div class="fr fade">? <a href="#_top" class="dark">回到顶部</a></div>
+                <span class="fade">Add a Reply Now</span>
+                
+                </div>
+                <div class="cell">
+                    <textarea class="mll" name="content" id="reply_content" style="height: 200px;" onkeyup="c();"></textarea>
+                    <div class="sep10"></div>
+                    <div class="fr fade" id="e"></div>
+                    <input type="submit" class="super normal button" value="Send" />
+                </div></form>
+                
+                <div class="inner"><div class="fr" style="font-size: 12px; margin-left: 20px;"><a href="/">← V2EX</a></div>? Please avoid posting pointless replies, it's always great to save everyone's precious time.</div>
+            </div>
+            
+        </div>
+    <div class="c"></div>
+    </div>
+</div>
+    
+<div id="Bottom">
+    <div id="BottomMain">
+        <div class="fr" align="right"><a href="http://www.linode.com/?r=af313ea8a6bb6f99aff800c67349cabbfee2682f" target="_blank"><img src="http://static.v2ex.com/logos/linode.png" border="0" alt="Linode" /></a><div class="sep10"></div><strong><a href="http://www.linode.com/?r=af313ea8a6bb6f99aff800c67349cabbfee2682f" target="_blank">Linode - 互联网上最好的云主机</a></strong></div>
+        <strong><a href="/about" class="dark">关于</a></strong> &nbsp; | &nbsp; <strong><a href="/faq" class="dark">FAQ</a></strong> &nbsp; | &nbsp; <strong><a href="/mission" class="dark">我们的愿景</a></strong> &nbsp; | &nbsp; <strong><a href="/advertise" class="dark">广告投放</a></strong> &nbsp; | &nbsp; <strong><a href="https://workspace.v2ex.com/" class="dark" target="_blank">Workspace</a></strong> &nbsp; | &nbsp; <strong><a href="http://www.v2ex.com/gadgetlab" class="dark">Gadget Lab</a></strong> &nbsp; | &nbsp; <strong><a href="http://livid.v2ex.com/" class="dark" target="_blank">博客</a></strong> &nbsp; | &nbsp; <strong><a href="http://www.v2ex.com/start" class="dark" target="_blank">上网首页</a></strong>
+        <div class="sep10"></div>
+        <div class="sep5"></div>
+        <span class="fade">创意工作者们的社区</span>
+        <div class="sep3"></div>
+        <span class="fade">Lovingly made by <a href="/" target="_blank" class="dark"><strong>{{ site.author.name }} 2012 </strong></a></span>
+        <div class="sep10"></div>
+        <div class="sep5"></div>
+        <small>VERSION: 2.5.0-dev-7<br />? Do have a faith in what you're doing.</small>
+    </div>
+</div>
+{% include JB/analytics %}
+</body>
 </html>
