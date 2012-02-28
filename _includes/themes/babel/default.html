@@ -79,6 +79,17 @@
 			{% endfor %}
 			</div>
 		</div>
+        <div class="sep20"></div>          
+		<div class="box">
+			<div class="cell"><div class="fr"></div>
+				<span class="fade">Categories</span>
+			</div>
+			<div class="inner">
+			{% for tag in site.tags %} 
+			  <a  id="{{ tag[0] }}-ref" href="/tags.html#{{ tag[0] }}-ref" class="item_node">{{ tag[0] }}</a>
+			{% endfor %}
+			</div>
+		</div>
         <div class="sep20"></div>       
         <div class="box">
             <div class="inner" align="center">
@@ -101,7 +112,7 @@
             <div class="box">
                 <div class="cell" style="min-height: 73px;">
                     <span class="bigger"><a href="/">V2EX</a> <span class="chevron">&nbsp;?&nbsp;</span> <a href="/go/afterdark">天黑以后</a></span>
-                    <h1>20111213 午夜俱乐部</h1>
+                    <h1>{{ page.title }}</h1>
                     <small class="fade">By <a href="/member/napoleonu" class="dark">napoleonu</a> at 2 months, 2 weeks ago, 525 hits</small>
                 </div>
                 <div class="inner">
