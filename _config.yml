@@ -81,7 +81,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : napoleonu
+      short_name : chaousnie
     livefyre :
       site_id : 123
     intensedebate :
