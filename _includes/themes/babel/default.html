@@ -25,13 +25,13 @@
         <a href="/"><img src="http://v2excdn.b0.upaiyun.com/static/img/logo_20110809.png" border="0" style="display: block; float: left; margin-top: 9px; margin-left: 20px;" /></a>
         <div id="Navigation">
             <ul>
-                <li><a href="{{ HOME_PATH }}" class="top">{{ site.title }}</a></li>
+                <li><a href="{{ HOME_PATH }}" alt="{{ site.title }}" class="top">Home</a></li>
 				{% assign pages_list = site.pages %}
 				{% assign group = 'navigation' %}
 				{% include JB/pages_list %}
             </ul>
         </div>
-        <div id="Search"><form onsubmit="return dispatch()"><div style="width: 276px; height: 28px; background-image: url('/static/img/qbar.png'); background-repeat: no-repeat; display: inline-block;"><input type="text" maxlength="40" name="q" id="q" value="" /></div></form></div>
+        <div id="Search"><form onsubmit="return dispatch()"><div style="width: 276px; height: 28px; background-image: url('{{ ASSET_PATH }}/img/qbar.png'); background-repeat: no-repeat; display: inline-block;"><input type="text" maxlength="40" name="q" id="q" value="" /></div></form></div>
     </div>
 </div>
 
@@ -82,7 +82,7 @@
         <div class="sep20"></div>          
 		<div class="box">
 			<div class="cell"><div class="fr"></div>
-				<span class="fade">Categories</span>
+				<span class="fade">Tags</span>
 			</div>
 			<div class="inner">
 			{% for tag in site.tags %} 
@@ -111,14 +111,13 @@
         <div id="Content">
             <div class="box">
                 <div class="cell" style="min-height: 73px;">
-                    <span class="bigger"><a href="/">V2EX</a> <span class="chevron">&nbsp;?&nbsp;</span> <a href="/go/afterdark">天黑以后</a></span>
                     <h1>{{ page.title }}</h1>
                     <small class="fade">By <a href="/member/napoleonu" class="dark">napoleonu</a> at 2 months, 2 weeks ago, 525 hits</small>
                 </div>
                 <div class="inner">
                     <div class="content topic_content">{{ content }}</div>
                 </div>
-                <div class="inner"><div class="fr" align="right"><a href="/favorite/topic/23365?t=919689136f0f42f686017d333dfc5bea" class="op">加入收藏</a> &nbsp;<a href="#;" onclick="window.open('https://twitter.com/share?url=http://www.v2ex.com/t/23365&related=v2ex&hashtags=afterdark&text=20111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'twitter.com');" class="op">Tweet</a> &nbsp;<a href="#;" onclick="window.open('http://shuo.douban.com/!service/share?href=http://www.v2ex.com/t/23365&name=V2EX%20-%2020111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'douban.com');" class="op">Douban</a> &nbsp;<a href="#;" onclick="window.open('http://service.weibo.com/share/share.php?url=http://www.v2ex.com/t/23365&title=V2EX%20-%2020111213 午夜俱乐部', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'weibo.com');" class="op">Weibo</a></div> &nbsp; </div>
+                <div class="inner"><div class="fr" align="right">{% unless page.tags == empty %}{% assign tags_list = page.tags %}{% include JB/tags_list2 %}{% endunless %}</div>
             </div>
             <div class="sep20"></div>
             <div class="box"><form action="" disabled method="post" onsubmit="return v()">
