@@ -1,5 +1,126 @@
-<div class="row">
-  <div class="span14">
-    {{ content }}
-  </div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="True" name="HandheldFriendly" />
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0; name='viewport'" />
+    <title>{{ page.title }}</title>
+	<meta name="author" content="{{ site.author.name }}">
+	<link href="{{ ASSET_PATH }}/css/default.css" media="screen" type="text/css"   rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/napoleonu" />
+    <link rel="canonical" href="http://sar4.com" />
+    <meta name="alexaVerifyID" content="OFc8dmwZo7ttU4UCnDh1rKDaaaa" />
+    <meta name="google-site-verification" content="LM_cJR94XJIqcYJeOCscGVMWdaRUvmyz6cVOqaaaaaa" />
+    <meta property="wb:webmaster" content="f2f4cb229baaaaaa" />
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+</head>
+
+<body>
+<div id="Top" style="background-image: url('{{ ASSET_PATH }}/img/bg_top_light.png')"><a href="#;" name="_top"></a>
+    <div id="TopMain">
+        <a href="/"><img src="http://v2excdn.b0.upaiyun.com/static/img/logo_20110809.png" border="0" style="display: block; float: left; margin-top: 9px; margin-left: 20px;" /></a>
+        <div id="Navigation">
+            <ul>
+                <li><a href="{{ HOME_PATH }}" alt="{{ site.title }}" class="top">Home</a></li>
+				{% assign pages_list = site.pages %}
+				{% assign group = 'navigation' %}
+				{% include JB/pages_list %}
+            </ul>
+        </div>
+        <div id="Search"><form onsubmit="return dispatch()"><div style="width: 276px; height: 28px; background-image: url('{{ ASSET_PATH }}/img/qbar.png'); background-repeat: no-repeat; display: inline-block;"><input type="text" maxlength="40" name="q" id="q" value="" /></div></form></div>
+    </div>
 </div>
+
+<div id="Wrapper">
+    <div id="Main">
+    <div id="Sidebar"></div>
+    <div id="Rightbar">
+        <div class="box">
+            <div class="cell">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                        <td width="48" valign="top"><a href="/"><img src="{{ ASSET_PATH }}/img/avatar.png" border="0" /></a></td>
+                        <td width="10" valign="top"></td>
+                        <td width="auto" align="left"><span class="bigger"><a href="http://twitter.com/{{ site.author.twitter }}" target="_blank">{{ site.author.twitter }}</a></span>
+                            <div class="sep5"></div>
+                            <span class="fade">{{ site.tagline }}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="sep20"></div>          
+		<div class="box">
+			<div class="cell"><div class="fr"></div>
+				<span class="fade">Categories</span>
+			</div>
+			<div class="inner">
+			{% for category in site.categories %} 
+			  <a  id="{{ category[0] }}-ref" href="/categories.html#{{ category[0] }}-ref" class="item_node">{{ category[0] | join: "/" }}</a>
+			{% endfor %}
+			</div>
+		</div>
+        <div class="sep20"></div>          
+		<div class="box">
+			<div class="cell"><div class="fr"></div>
+				<span class="fade">Tags</span>
+			</div>
+			<div class="inner">
+			{% for tag in site.tags %} 
+			  <a  id="{{ tag[0] }}-ref" href="/tags.html#{{ tag[0] }}-ref" class="item_node">{{ tag[0] }}</a>
+			{% endfor %}
+			</div>
+		</div>
+        <div class="sep20"></div>       
+        <div class="box">
+            <div class="inner" align="center">
+                <div style="width: 240px; text-align: left" >
+                    <span style="font-weight: bold; font-size: 10px; color: #e2e2e2;">Sponsored by</span>
+                    <div class="sep10"></div>
+                    <a href="http://3g.163.com/links/3482" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', '3g.163.com');"><img src="http://static.v2ex.com/banners/m.163.com_01.png" border="0" width="120" height="90" alt="网易应用中心" /></a>
+                    <div class="sep5"></div>
+                    <span style="font-size: 11px; color: #666;">
+                        <strong style="color: #000;"><a href="http://3g.163.com/links/3482" class="black" onClick="recordOutboundLink(this, 'Outbound Links', 'm.163.com');" target="_blank">网易应用中心</a></strong><div class="sep3"></div><span style="font-size: 12px;">每日限免、冰点降价，网罗最新最全的精品应用，为用户打造最优质的应用下载平台！</span>
+                    </span>
+                    <div class="sep3"></div>
+                    <small class="fade">Promoted by <a href="http://m.163.com/" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', 'm.163.com');">网易应用中心</a></small>
+                </div>
+            </div>
+        </div> 
+    </div>
+        
+    <div id="Content">
+		<div class="box">
+			<div class="cell" style="min-height: 73px;">
+				<h1>{{ page.title }}</h1>
+			</div>
+			<div class="inner">
+				<div class="content topic_content">{{ content }}</div>
+			</div>
+		</div>
+    </div>
+    <div class="c"></div>
+    </div>
+</div>
+    
+<div id="Bottom">
+    <div id="BottomMain">
+        <div class="fr" align="right"><a href="https://github.com/mojombo/jekyll" target="_blank"><img src="{{ ASSET_PATH }}/img/jekyll.png" border="0" alt="Jekyll" /></a><div class="sep10"></div><strong><a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll is a simple, blog aware, static site generator. </a></strong></div>
+        <strong><a href="#" class="dark">About</a></strong> &nbsp; |<strong><a href="/20120214" class="dark">20120214</a></strong> &nbsp; 
+        <div class="sep10"></div>
+        <div class="sep5"></div>
+        <span class="fade">Theme made by <a href="http://www.olivida.com/" target="_blank" class="dark"><strong>OLIVIDA</strong></a></span>
+        <div class="sep3"></div>
+        <span class="fade">Lovingly made by <a href="/" target="_blank" class="dark"><strong>{{ site.author.name }} </strong></a></span>
+        <div class="sep10"></div>
+        <div class="sep5"></div>
+        <small>VERSION: 1.0.0<br />? Do have a faith in what you're doing.</small>
+    </div>
+</div>
+{% include JB/analytics %}
+</body>
+</html>
