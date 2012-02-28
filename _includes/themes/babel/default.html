@@ -130,7 +130,24 @@
                 
                 <div class="inner"><div class="fr" style="font-size: 12px; margin-left: 20px;"><a href="/">← Home</a></div>? Please avoid posting pointless replies, it's always great to save everyone's precious time.</div>
             </div>
-            
+            <div class="box">
+				<div class="inner">
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tbody><tr>
+					  {% if page.previous %}
+						<td width="100" align="left"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}" class="super normal button">Previous</a><div class="sep5"></div></td>
+					  {% else %}
+						<td width="100" align="left"></td>
+					  {% endif %}
+						<td width="auto" align="center" valign="middle"><strong style="font-size: 13px"><span class="fade"> </span><span class="snow"> </span></strong></td>
+					  {% if page.next %}
+						<td width="100" align="right"><div class="sep5"></div><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}" class="super normal button">Next</a><div class="sep5"></div></td>
+					  {% else %}
+						<td width="100" align="right"></td>
+					  {% endif %}
+				</tr></tbody></table>
+				</div>
+		</div>            
         </div>
     <div class="c"></div>
     </div>
