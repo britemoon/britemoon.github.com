@@ -26,7 +26,7 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://napoleonu.github.com
+production_url : http://sar4.com
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -37,7 +37,7 @@ JB :
   # Links in your website should always be prefixed with {{BASE_PATH}}
   # however this value will be dynamically changed depending on your deployment situation.
   #
-  CNAME (http://sar4.com)
+  # CNAME (http://sar4.com)
   #   DO NOT SET BASE_PATH 
   #   (urls will be prefixed with "/" and work relatively)
   #
@@ -81,7 +81,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : napoleonu
     livefyre :
       site_id : 123
     intensedebate :
@@ -99,7 +99,7 @@ JB :
   analytics :
     provider : google
     google : 
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-123-123456'
     getclicky :
       site_id : 
 
