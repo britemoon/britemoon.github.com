@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Ubuntu
-tags : [Ubuntu,Linux]
+tags : [Ubuntu, Linux]
 title: Ubuntu使用小技巧
 ---
 {% include JB/setup %}
@@ -9,11 +9,10 @@ title: Ubuntu使用小技巧
 1.Ext3升级到Ext4
 
     Which '/dev/XXXX' is your filesystem ID
-
-    1.sudo tune2fs -O extents,uninit_bg,dir_index /dev/XXXX
-    2.sudo fsck -pf /dev/XXXX
-    3.sudo mount -t ext4 /dev/XXXX /mnt
-    4.Open fstab and change the ext3 entry to ext4.Save and exit.
+    sudo tune2fs -O extents,uninit_bg,dir_index /dev/XXXX
+    sudo fsck -pf /dev/XXXX
+    sudo mount -t ext4 /dev/XXXX /mnt
+    Open fstab and change the ext3 entry to ext4.Save and exit.
 
 2.使用sudo不需要密码
 
@@ -44,5 +43,4 @@ title: Ubuntu使用小技巧
 5.ssh tunnel
 
     #在本地的 213 端口新建一个链接到远程服务器的ssh tunnel实现SOCKS代理，通过远程服务器实现不可能的访问
-
     ssh -D 213 username@remotesshserver.com
