@@ -51,6 +51,16 @@ h4 {
 	margin: 0px;
 }
 
+pre {
+	background: #F4F5F7;
+	border: 1px dashed #CCC;
+	padding: 8px 12px 8px 6px;
+	margin: 5px 0;
+	font-size: 12px;
+	overflow-x: auto;
+	line-height: 150%;
+}
+
 form {
 	display: inline;
 	padding: none;
@@ -354,7 +364,7 @@ td.avatar_mini {
 	line-height: 180%;
 	color: #000;
 	overflow:hidden;
-	word-break: break-word;
+	/* word-break: break-word; */
 }
 
 .green {
