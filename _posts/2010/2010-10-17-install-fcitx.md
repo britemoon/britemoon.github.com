@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Ubuntu
-tags : [Ubuntu,Linux]
+tags : [Ubuntu, Linux]
 title: 安装fcitx
 ---
 {% include JB/setup %}
