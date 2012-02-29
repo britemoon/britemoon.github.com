@@ -20,12 +20,12 @@ _mysql_exceptions.ProgrammingError: (2014, "Commands out of sync; you can't run 
 
 搜索后据说是cursor没关闭的原因
 {% capture text %}
-    >>> c=MySQLdb.connect(host=s2,user=user,passwd=pwd,db=db2)
-    >>> cr=c.cursor()
-    >>> cr.execute("update member set block=1")
-    294L
-    >>> c.commit()
-    >>> cr.close()
-    >>> c.close()
+>>> c=MySQLdb.connect(host=s2,user=user,passwd=pwd,db=db2)
+>>> cr=c.cursor()
+>>> cr.execute("update member set block=1")
+294L
+>>> c.commit()
+>>> cr.close()
+>>> c.close()
 {% endcapture %}
 {% include JB/liquid_raw %}
