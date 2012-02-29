@@ -6,7 +6,7 @@ tags : [Python, MySQLdb, Error, Exception]
 {% include JB/setup %}
 
 MySQLdb报如下错误
-...{% capture text %}
+{% capture text %}
 >>> myDB=MySQLdb.connect(host=s2,user=user,passwd=pwd,db=db2)
 >>> c=myDB.cursor()
 >>> c.execute("""delete from member""")
@@ -16,9 +16,10 @@ Traceback (most recent call last):
   File "build/bdist.linux-x86_64/egg/MySQLdb/connections.py", line 35, in defaulterrorhandler
 _mysql_exceptions.ProgrammingError: (2014, "Commands out of sync; you can't run this command now")
 ...{% endcapture %}
+{% include JB/liquid_raw %}
 
 搜索后据说是cursor没关闭的原因
-...{% capture text %}
+{% capture text %}
     >>> c=MySQLdb.connect(host=s2,user=user,passwd=pwd,db=db2)
     >>> cr=c.cursor()
     >>> cr.execute("update member set block=1")
@@ -27,3 +28,4 @@ _mysql_exceptions.ProgrammingError: (2014, "Commands out of sync; you can't run 
     >>> cr.close()
     >>> c.close()
 ...{% endcapture %}
+{% include JB/liquid_raw %}
