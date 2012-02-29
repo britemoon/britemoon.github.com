@@ -29,7 +29,7 @@ Usage:
   {% else %}
     {% for category in categories_list %} 
     	<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref"  class="item_node">
-    		{{ category[0] | join: "/" }} <span>{{ category[1].size }}</span>
+    		{{ category[0] | join: "/" }}
     	</a>
     {% endfor %}
   {% endif %}
