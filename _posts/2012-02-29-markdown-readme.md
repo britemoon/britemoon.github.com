@@ -1,3 +1,11 @@
+---
+layout: post
+category : Misc
+tags : [Markdown]
+title: Markdown Readme
+---
+{% include JB/setup %}
+
 Markdown
 ========
 
