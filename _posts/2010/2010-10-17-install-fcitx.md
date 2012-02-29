@@ -39,7 +39,7 @@ title: 安装fcitx
 
 	FCITX -- Get Signal No.: 11
 
-	是因为：在安装新版本之前没有删除home目录下的.fcitx目录所导致。只有删除后重新安装才能继续使用。 解决办法：
+是因为：在安装新版本之前没有删除home目录下的.fcitx目录所导致。只有删除后重新安装才能继续使用。 解决办法：
 
 	chaos@napoleonu:~$ cd ~/
 	chaos@napoleonu:~$ rm -r .fcitx
