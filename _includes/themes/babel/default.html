@@ -98,7 +98,7 @@
 		<div class="box">
 			<div class="cell" style="min-height: 73px;">
 				<h1>{{ page.title }}</h1>
-				<small class="fade">By {{ site.author.name }} {% if page.date %}at {{ page.date | date_to_long_string }}{% endif %}</small>
+				{% if page.date %}<small class="fade">By {{ site.author.name }} at {{ page.date | date_to_long_string }}</small>{% endif %}
 			</div>
 			<div class="inner">
 				<div class="content topic_content">{{ content }}</div>
@@ -107,6 +107,8 @@
 				<div class="fr" align="right">{% unless page.tags == empty %}{% assign tags_list = page.tags %}{% include JB/tags_list_post %}{% endunless %}</div>&nbsp;
 			</div>
 		</div>
+		{% if page.previous or page.next %}
+		<div class="sep20"></div>
 		<div class="box">
 			<div class="inner">
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -124,7 +126,8 @@
 					{% endif %}
 				</tr></tbody></table>
 			</div>
-		</div>  
+		</div>
+		{% endif %}
 		<div class="sep20"></div>
 		<div class="box">
 			<div class="cell"><div class="fr fade">⬆  <a href="#_top" class="dark">Top</a></div>
