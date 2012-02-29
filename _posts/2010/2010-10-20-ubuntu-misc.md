@@ -40,27 +40,7 @@ title: Ubuntu使用小技巧
     #比如将一个UTF-8 编码的文件转换成GBK编码
     iconv -f GBK -t UTF-8 file1 -o file2
 
-5.修复grub2
-
-    如果手上有grub启动的工具盘,用工具盘启动,在grub菜单上按c进入命令行状态
-    在grub>提示符下输入
-    grub>find /boot/grub/core.img (有/boot分区的用find /grub/core.img)
-    (hdx,y) (显示查找到的分区号）
-    grub>root (hdx,y)
-    grub>kernel /boot/grub/core.img (/boot分区的用 kernel /grub/core.img)
-    grub>boot
-    执行boot后能转入grub2菜单，启动ubuntu后,再在ubuntu终端下执行
-    sudo grub-install /dev/sda (或sdb，sdc等）修复grub
-
-6.Audacious中歌曲名乱码问题的解决
-
-    Audacious中的歌曲产生乱码主要是IDV3标签都是GB编码的,只要不显示IDV3信息就可以了.
-    1.在audacious上右键选择"首选项"
-    2.在"播放列表"中,把标题格式改为"Custom"
-    3.再把自定格式改为"%f"(不要引号).
-    如果没有显示的话不要急,刷新一遍歌曲列表就可以了.
-
-7.ssh tunnel
+5.ssh tunnel
 
     #在本地的 213 端口新建一个链接到远程服务器的ssh tunnel实现SOCKS代理，通过远程服务器实现不可能的访问
     ssh -D 213 username@remotesshserver.com
