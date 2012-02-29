@@ -15,7 +15,7 @@ Traceback (most recent call last):
   File "build/bdist.linux-x86_64/egg/MySQLdb/cursors.py", line 166, in execute
   File "build/bdist.linux-x86_64/egg/MySQLdb/connections.py", line 35, in defaulterrorhandler
 _mysql_exceptions.ProgrammingError: (2014, "Commands out of sync; you can't run this command now")
-...{% endcapture %}
+{% endcapture %}
 {% include JB/liquid_raw %}
 
 搜索后据说是cursor没关闭的原因
@@ -27,5 +27,5 @@ _mysql_exceptions.ProgrammingError: (2014, "Commands out of sync; you can't run 
     >>> c.commit()
     >>> cr.close()
     >>> c.close()
-...{% endcapture %}
+{% endcapture %}
 {% include JB/liquid_raw %}
