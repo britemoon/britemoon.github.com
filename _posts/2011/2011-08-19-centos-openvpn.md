@@ -15,11 +15,11 @@ title: CentOS上OpenVPN的安装与使用
 **二、OpenVPN服务端安装过程**
 1.lzo下载与安装
 
-	cd /apps	#安装目录
-	wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.04.tar.gz	#下载lzo
-	tar zxvf lzo-2.04.tar.gz	#解压
+	cd /apps
+	wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.04.tar.gz
+	tar zxvf lzo-2.04.tar.gz
 	cd lzo-2.04
-	./configure ; make ; make install	#编译与安装
+	./configure ; make ; make install
 
 2.openvpn下载与安装
 
@@ -31,7 +31,7 @@ title: CentOS上OpenVPN的安装与使用
 
 3.服务器端设置
 
-	cp -r /apps/openvpn-2.1_rc15/ /etc/openvpn	#用easy-rsa生成服务器证书客户端证书
+	cp -r /apps/openvpn-2.1_rc15/ /etc/openvpn	用easy-rsa生成服务器证书客户端证书
 
 4.初始化参数
 
@@ -58,7 +58,7 @@ title: CentOS上OpenVPN的安装与使用
 
 9.生成client key
 
-	./build-key client1 #与server key 设置一致
+	./build-key client1 与server key 设置一致
 
 如要生成多个vpn账户，则与client1一样生成其他客户端证书如
 
@@ -71,7 +71,7 @@ title: CentOS上OpenVPN的安装与使用
 	
 	client
 	remote 192.168.80.129 1194
-	dev tun #说明连接方式是点对点的连接，如要以以太网的方式则可以将tun修改为tap
+	dev tun 说明连接方式是点对点的连接，如要以以太网的方式则可以将tun修改为tap
 	proto tcp
 	resolv-retry infinite
 	nobind
@@ -95,7 +95,7 @@ title: CentOS上OpenVPN的安装与使用
 
 	port 1194
 	proto tcp
-	dev tun #说明连接方式是点对点的连接，如要以以太网的方式则可以将tun修改为tap
+	dev tun 说明连接方式是点对点的连接，如要以以太网的方式则可以将tun修改为tap
 	ca /etc/openvpn/easy-rsa/2.0/keys/ca.crt
 	cert /etc/openvpn/easy-rsa/2.0/keys/server.crt
 	key /etc/openvpn/easy-rsa/2.0/keys/server.key
@@ -103,21 +103,21 @@ title: CentOS上OpenVPN的安装与使用
 	server 10.8.0.0 255.255.255.0
 	ifconfig-pool-persist ipp.txt
 	push "redirect-gateway"
-	push "route 172.18.2.0 255.255.255.0" #路由转发到内网网段
+	push "route 172.18.2.0 255.255.255.0" 路由转发到内网网段
 	push "dhcp-option DNS 172.18.2.1"
 	push "dhcp-option DNS 8.8.8.8"
 	keepalive 10 120
 	comp-lzo
 	persist-key
 	persist-tun
-	client-to-client #如果不加则各个客户端之间将无法连接
+	client-to-client 如果不加则各个客户端之间将无法连接
 
 13.对防火墙的相关设置
 
 	echo 1 > /proc/sys/net/ipv4/ip_forward
 	iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o venet0 -j MASQUERADE
 	iptables-save > /etc/sysconfig/iptables
-	sed -i 's/eth0/venet0/g' /etc/sysconfig/iptables # dirty vz fix for iptables-save
+	sed -i 's/eth0/venet0/g' /etc/sysconfig/iptables  dirty vz fix for iptables-save
 	echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 
 如果VPN服务器上的内网ip不是网关那么必须加上下面这一句（如果不加则客户端无法连接其他内网机器）：
