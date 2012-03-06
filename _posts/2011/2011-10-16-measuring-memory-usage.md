@@ -6,7 +6,7 @@ title: Linux下程序的内存占用
 ---
 {% include JB/setup %}
 
-** On measuring memory usage [http://blogs.kde.org/node/1445](http://blogs.kde.org/node/1445) **
+**On measuring memory usage [http://blogs.kde.org/node/1445](http://blogs.kde.org/node/1445)**
 
 Oh boy. Gwenview uses 83% more memory than Kuickshow (http://kde-apps.org/content/show.php?content=9847 - the last comment as of now). BTW I especially like the "83%" part - it's just one case and the measurement is imprecise, but it can't be "about 80%" or "almost double". Reminds me of all those "hair 74% stronger" ads. Anyway.
 
@@ -44,19 +44,19 @@ PPPS: If somebody actually knows some good way how to measure memory usage prope
 
  
 
-** 搞明白Linux下程序的内存占用 [http://blog.cathayan.org/item/1261](http://blog.cathayan.org/item/1261) **
+**搞明白Linux下程序的内存占用 [http://blog.cathayan.org/item/1261](http://blog.cathayan.org/item/1261)**
 
 其实在认真阅读了这篇名为“计算内存使用”的文章之后，还是处于半迷糊状态。这位作者就说Linux下面没有特别好的显示内存占用的工具，虽然有top和free，但都说得不清楚，就跟巫毒教的魔术似的。
 
 比如top这个工具，它会显示3种数据，作者分别解释如下：
 
-** VIRT：virtual memory usage。 ** Virtual这个词很神，一般解释是：virtual adj.虚的, 实质的, [物]有效的, 事实上的。到底是虚的还是实的？让Google给Define之后，将就明白一点，就是这东西还是非物质的，但是有效果的，不发生在真实世界的，发生在软件世界的等等。这个内存使用就是一个应用占有的地址空间，只是要应用程序要求的，就全算在这里，而不管它真的用了没有。写程序怕出错，又不在乎占用的时候，多开点内存也是很正常的。
+**VIRT：virtual memory usage。**Virtual这个词很神，一般解释是：virtual adj.虚的, 实质的, [物]有效的, 事实上的。到底是虚的还是实的？让Google给Define之后，将就明白一点，就是这东西还是非物质的，但是有效果的，不发生在真实世界的，发生在软件世界的等等。这个内存使用就是一个应用占有的地址空间，只是要应用程序要求的，就全算在这里，而不管它真的用了没有。写程序怕出错，又不在乎占用的时候，多开点内存也是很正常的。
 
-** RES：resident memory usage。 ** 常驻内存。这个值就是该应用程序真的使用的内存，但还有两个小问题，一是有些东西可能放在交换盘上了（SWAP），二是有些内存可能是共享的。
+**RES：resident memory usage。**常驻内存。这个值就是该应用程序真的使用的内存，但还有两个小问题，一是有些东西可能放在交换盘上了（SWAP），二是有些内存可能是共享的。
 
-** SHR：shared memory。 ** 共享内存。就是说这一块内存空间有可能也被其他应用程序使用着；而Virt － Shr似乎就是这个程序所要求的并且没有共享的内存空间。
+**SHR：shared memory。**共享内存。就是说这一块内存空间有可能也被其他应用程序使用着；而Virt － Shr似乎就是这个程序所要求的并且没有共享的内存空间。
 
-** DATA：数据占用的内存。 ** 如果top没有显示，按f键可以显示出来。这一块是真正的该程序要求的数据空间，是真正在运行中要使用的。
+**DATA：数据占用的内存。**如果top没有显示，按f键可以显示出来。这一块是真正的该程序要求的数据空间，是真正在运行中要使用的。
 
 所以DATA的含义比较确定，甚至可以用程序读取的数据量计算出来；SHR是一个潜在的可能会被共享的数字，如果只开一个程序，也没有别人共同使用它；VIRT里面的可能性更多，比如它可能计算了被许多X的库所共享的内存；RES应该是比较准确的，但不含有交换出去的空间；但基本可以说RES是程序当前使用的内存量。
 
