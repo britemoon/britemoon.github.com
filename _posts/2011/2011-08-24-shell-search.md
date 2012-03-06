@@ -1,8 +1,8 @@
 ---
 layout: post
-category : Python
-tags : [Python, MySQL]
-title: Windows上Python备份MySQL脚本
+category : Shell
+tags : [CentOS, Ubuntu, Shell]
+title: 使用shell搜索文本
 ---
 {% include JB/setup %}
 
