@@ -491,7 +491,7 @@ var countdownFinale = (function() {
       document.body.style.cursor = 'pointer';
       document.body.addEventListener('click', function(e) {
         if ($(e.target).attr('id') != 'countdown-watch-again') {
-          window.location = 'http://maiun.com';
+          window.location = '#';
         }
       }, false);
       positionAdjustment = .005;
