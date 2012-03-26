@@ -2,11 +2,11 @@
 layout: post
 category : MySQL
 tags : [MySQL, Install]
-title: /bin/rm: cannot remove `libtoolT’: No such file or directory
+title: /bin/rm: cannot remove `libtoolT`: No such file or directory
 ---
 {% include JB/setup %}
 
-安装mysql时报错：/bin/rm: cannot remove `libtoolT’: No such file or directory
+安装mysql时报错：/bin/rm: cannot remove `libtoolT`: No such file or directory
 
 	config.status: creating support-files/Makefile
 	config.status: creating support-files/MacOSX/Makefile
@@ -27,7 +27,7 @@ title: /bin/rm: cannot remove `libtoolT’: No such file or directory
 	config.status: creating include/config.h
 	config.status: executing depfiles commands
 	config.status: executing libtool commands
-	/bin/rm: cannot remove `libtoolT': No such file or directory
+	/bin/rm: cannot remove `libtoolT`: No such file or directory
 	config.status: executing default commands
 
 	Thank you for choosing MySQL!
