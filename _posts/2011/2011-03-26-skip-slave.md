@@ -90,4 +90,4 @@ title: Skip Slave Error
 	   Last_Error: Error 'Duplicate entry '190' for key 'PRIMARY'' on query. Default database: 'ssldb'. Query: 'insert slave_no_skip1  values (190,'y17')'
 	Skip_Counter: 0
 
-可见 他已经如我所愿，跳到use `ssldb`; insert slave_no_skip1  values (190,'y17')这里了。
+可见 他已经如我所愿，跳到**use `ssldb`; insert slave_no_skip1  values (190,'y17')**这里了。

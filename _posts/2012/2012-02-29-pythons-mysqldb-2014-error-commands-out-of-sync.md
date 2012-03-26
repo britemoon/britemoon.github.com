@@ -2,6 +2,7 @@
 layout: post
 category : Python
 tags : [Python, MySQLdb, Error, Exception]
+title: Pythons Mysqldb 2014 Error Commands Out Of Sync
 ---
 {% include JB/setup %}
 
