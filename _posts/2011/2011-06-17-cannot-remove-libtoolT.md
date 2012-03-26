@@ -2,7 +2,7 @@
 layout: post
 category : MySQL
 tags : [MySQL, Install ,Error]
-title: cannot remove libtoolT: No such file or directory
+title: cannot remove libtoolT
 ---
 {% include JB/setup %}
 
