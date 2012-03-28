@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>Markdown Editor</title>
+  <link rel="shortcut icon" href="favicon.ico" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="showdown.js"></script>
+  <script type="text/javascript" src="markdown-editor.js"></script>
+  </script>
+  <style type="text/css" media="screen">
+html, body { background: #ccc; border: 0; height: 100%; margin: 0; overflow: hidden; padding: 0; }
+a { color: #7b0000; font-family: arial, helvetica, sans-serif; font-size: 12px; text-decoration: none; }
+a:hover { text-decoration: underline; }
+iframe, input, div, table, textarea { background: #fff; border: 0; font-size: 100%; margin: 0; outline: 0; padding: 0; }
+iframe { cursor: pointer; border: 0; height: 28px; overflow: hidden; width: 28px; }
+input[type=image] { height: 28px; border-top: 4px solid #fff; width: 28px; }
+#output { font-family: arial, helvetica, sans serif; font-size: 80%; overflow: auto; padding: 5px; position: absolute; height: 200px; left: 112px; top: 48px; width: 100px; }
+textarea { background: #38619d; color: #fff; height: 200px; left: 8px; overflow: auto; padding: 5px; position: absolute; top: 48px; width: 100px;  }
+#toolbar { background: #fff; border-bottom: 1px solid #bbb; height: 40px; width: 100%; }
+td { text-align: center; }
+
+/* logo */
+# { background: #fff url(jc.gif) repeat -1909px 0; border: 0; left: 10px; height: 41px; overflow: hidden; position: absolute; top: -4px; width: 127px; }
+# a, # span { display: block; height: 41px; padding: 0 127px; width: 127px; }
+# a:hover { background: #fff url(jc.gif) repeat -1035px 0; }
+  </style>
+  <style type="text/css" media="print">
+body { background: #fff; }
+table, textarea { display: none; }
+#output { font-family: arial, helvetica, sans serif; left: 0; position: absolute; top: 0; width: 100%; }
+  </style>
+</head>
+
+<body>
+    <!-- save form -->
+    <form action="#" method="POST" id="saveform">
+        <input type="hidden" name="content" value="" />
+        <input type="hidden" name="name" value="" />
+        <input type="hidden" name="type" value="" />
+    </form>
+
+    <!-- toolbar -->
+    <table id="toolbar" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="width: 137px;"><div id="markdown"><a href="#"></a></div></td>
+            <td>
+                <input type="image" src="new.gif" onclick="New();" alt="New File" title="New File" />
+                <iframe src="about:blank" scrolling="no" frameborder="0"></iframe>
+                <input type="image" src="savetext.gif" onclick="Save(false);" alt="Save Text" title="Save Text" />
+                <input type="image" src="savehtml.gif" onclick="Save(true);" alt="Save HTML" title="Save HTML" />
+                <input type="image" src="print.gif" onclick="Print();" alt="Print" title="Print" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="image" src="layout_input.gif" onclick="Layout('input');" alt="Layout" title="Layout" />
+                <input type="image" src="layout_left.gif" onclick="Layout('left');" alt="Layout" title="Layout" />
+                <input type="image" src="layout_top.gif" onclick="Layout('top');" alt="Layout" title="Layout" />
+                <input type="image" src="layout_right.gif" onclick="Layout('right');" alt="Layout" title="Layout" />
+                <input type="image" src="layout_bottom.gif" onclick="Layout('bottom');" alt="Layout" title="Layout" />
+                <input type="image" src="layout_output.gif" onclick="Layout('output');" alt="Layout" title="Layout" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank"><input type="image" src="help.gif" alt="Help" title="Help" /></a>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+
+    <textarea>Start typing in the blue box...</textarea>
+    <div id="output">&nbsp;</div>
+</body>
+
+</html>
