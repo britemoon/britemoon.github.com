@@ -39,10 +39,10 @@ title: CentOS5静默安装Oracle10g
 	kernel.sem = 250 32000 100 128
 	fs.file-max=65536
 	net.ipv4.ip_local_port_range = 1024 65000
-	net.core.rmem_default=1048576
-	net.core.rmem_max=1048576
-	net.core.wmem_default=262144
-	net.core.wmem_max=262144
+	net.core.rmem_default = 1048576
+	net.core.rmem_max = 1048576
+	net.core.wmem_default = 262144
+	net.core.wmem_max = 262144
 	kernel.panic = 60
 
 更改完这个文件，使用sysctl -p使参数生效。
@@ -52,12 +52,12 @@ title: CentOS5静默安装Oracle10g
 
 在文件末尾增加如下内容：
 
-	session required /lib/security/pam_limits.so  (64位系统 /lib64/security/pam_limits.so)
-	session required pam_limits.so
+	session    required     /lib64/security/pam_limits.so (64位系统 /lib64/security/pam_limits.so)
+	session    required     pam_limits.so
 
 **5.创建oracle需要的组和用户及安装目录**
 
-	mkdir -p /ORACLE/app/oracle
+	mkdir -p /opt/ora10201/oracle
 
 以上目录路径，根据要求变化。
 需要创建的用户和组
@@ -77,8 +77,9 @@ title: CentOS5静默安装Oracle10g
 如果命令没有显示，则表示不存在这些用户，一般新装的系统，只有nobody用户
 创建用户和组
 
-	groupadd oinstall;groupadd dba
-	useradd -g oinstall -G dba -m oracle -d /ORACLE/app/oracle
+	groupadd oinstall
+	groupadd dba
+	useradd -g oinstall -G dba -m oracle -d /opt/ora10201/oracle
 
 设置oracle用户的密码
 
@@ -86,7 +87,7 @@ title: CentOS5静默安装Oracle10g
 
 设置目录所有者和权限
 
-	chown -R oracle.oinstall /ORACLE
+	chown -R oracle.oinstall /opt/ora10201
 
 **6.编辑oracle用户环境变量**
 在/home/oracle/目录下
@@ -95,7 +96,7 @@ title: CentOS5静默安装Oracle10g
 
 添加以下参数：
 
-	export ORACLE_BASE=/ORACLE/app
+	export ORACLE_BASE=/opt/ora10201
 	export ORACLE_HOME=$ORACLE_BASE/oracle/product/10.2.0/db_1
 	export ORACLE_SID=ora
 	export PATH=$PATH:$ORACLE_HOME/bin:$HOME/bin
@@ -111,14 +112,14 @@ title: CentOS5静默安装Oracle10g
 
 **8.建立或修改静默安装的配置文件**
 
-	vi $ORACLE_BASE/oralce/database/response/enterprise.rsp
+	vi $ORACLE_BASE/database/response/enterprise.rsp
 
 根据实际情况进行修改如：
 
 	UNIX_GROUP_NAME="oinstall"#oracle安装组名
 	RESPONSEFILE_VERSION=2.2.1.0.0
 	FROM_LOCATION="../stage/products.xml"
-	ORACLE_HOME="/ORACLE/app/oracle/product/10.2.0/db_1/"
+	ORACLE_HOME="/opt/ora10201/oracle/product/10.2.0/db_1/"
 	ORACLE_HOME_NAME="OraDb10g_home1"
 	TOPLEVEL_COMPONENT={"oracle.server","10.2.0.1.0"}
 	DEINSTALL_LIST={"oracle.server","10.2.0.1.0"}
@@ -150,6 +151,41 @@ title: CentOS5静默安装Oracle10g
 
 **9.开始安装oracle**
 
+依赖包
+
+	rpm -q --qf '%{NAME}-%{VERSION}-%{RELEASE} (%{ARCH}) \n' \binutils compat-db compat-libstdc++-296 control-center gcc gcc-c++ glibc-common libstdc++ libstdc++-devel libXp make ksh sysstat setarch
+	binutils-2.17.50.0.6-14.el5 (x86_64) 
+	compat-db-4.2.52-5.1 (x86_64) 
+	compat-libstdc++-296-2.96-138 (i386) 
+	control-center-2.16.0-16.el5 (x86_64) 
+	control-center-2.16.0-16.el5 (i386) 
+	gcc-4.1.2-50.el5 (x86_64) 
+	gcc-c++-4.1.2-50.el5 (x86_64) 
+	glibc-common-2.5-58 (x86_64) 
+	libstdc++-4.1.2-50.el5 (x86_64) 
+	libstdc++-4.1.2-50.el5 (i386) 
+	libstdc++-devel-4.1.2-50.el5 (x86_64) 
+	libXp-1.0.0-8.1.el5 (x86_64) 
+	libXp-1.0.0-8.1.el5 (i386) 
+	make-3.81-3.el5 (x86_64) 
+	ksh-20100202-1.el5_5.1 (x86_64) 
+	sysstat-7.0.2-3.el5_5.1 (x86_64) 
+	setarch-2.0-1.1 (x86_64) 
+
+添加10g支持的Linux版本
+
+	vi /opt/ora10201/database/install/oraparam.ini 
+
+	[Certified Versions]
+	Linux=redhat-3,SuSE-9,redhat-4,redhat-5,UnitedLinux-1.0,asianux-1,asianux-2
+
+	[Linux-redhat-5.6-optional]
+	TEMP_SPACE=80
+	SWAP_SPACE=150
+	MIN_DISPLAY_COLORS=256
+
+开始执行安装
+
 	cd $ORACLE_BASE/database/
 
 执行如下命令:
@@ -160,18 +196,18 @@ title: CentOS5静默安装Oracle10g
 运行到最后会提示我们查看log日志
 查看日志，提示我们用root用户运行如下两个脚本：
 
-	/ORACLE/app/oracle/oraInventory/orainstRoot.sh
-	/ORACLE/app/oracle/product/10.2.0/db_1/root.sh
+	/opt/ora10201/oraInventory/orainstRoot.sh
+	/opt/ora10201/oracle/product/10.2.0/db_1/root.sh
 
 **10.用root用户登录并运行安装所需脚本**
 
-	sh /ORACLE/app/oracle/oraInventory/orainstRoot.sh
-	sh /ORACLE/app/oracle/product/10.2.0/db_1/root.sh
+	sh /opt/ora10201/oraInventory/orainstRoot.sh
+	sh /opt/ora10201/oracle/product/10.2.0/db_1/root.sh
 
 至此Oracle的产品已经安装完成
 如要卸载oracle数据库软件则执行：
 
-	./runInstaller -silent -deinstall -removeallfiles -removeAllPatches "REMOVE_HOMES={$ORACLE_HOME}" -responseFile /ORALCE/app/oracle/database/response/enterprise.rsp
+	./runInstaller -silent -deinstall -removeallfiles -removeAllPatches "REMOVE_HOMES={$ORACLE_HOME}" -responseFile /opt/ora10201/database/response/enterprise.rsp
 
 **11.静默创建oracle数据库**
 
@@ -182,7 +218,7 @@ title: CentOS5静默安装Oracle10g
 	vi dbca.rsp 修改相关参数如下：
 	GDBNAME= "ora"
 	SID= "ora"
-	TEMPLATENAME= "/ORACLE/app/oracle/10.2.0/db_1/assistants/dbca/templates/General_Purpose.dbc"  模板的完全路径
+	TEMPLATENAME= "/opt/ora10201/oracle/10.2.0/db_1/assistants/dbca/templates/General_Purpose.dbc"  模板的完全路径
 	DB_UNIQUE_NAME= "ora"
 	INSTANCENAME= "ora" 实例名，如果需要使用Oracle Enterprise Manager，则还需要修改以下参数如下：
 	EMCONFIGURATION="LOCAL"   
@@ -192,7 +228,7 @@ title: CentOS5静默安装Oracle10g
 执行命令创建数据库
 
 	cd /$ORACLE_HOME/bin
-	./dbca -silent -createdatabase -responseFile  /ORACLE/app/oracle/database/response/dbca.rsp
+	./dbca -silent -createdatabase -responseFile  /opt/ora10201/database/response/dbca.rsp
 
 数据库就建好了
 如果要卸载数据库则：
@@ -201,7 +237,7 @@ title: CentOS5静默安装Oracle10g
 
 **12.使用lsnrctl来建立监听**
 
-	cd /ORACLE/app/oracle/product/10.2.0/db_1/network/admin
+	cd /opt/ora10201/oracle/product/10.2.0/db_1/network/admin
 	touch listener.ora
 	vi listener.ora
 
@@ -218,16 +254,16 @@ title: CentOS5静默安装Oracle10g
 	  (SID_LIST =
 		(SID_DESC =
 		  (SID_NAME = PLSExtProc)
-		  (ORACLE_HOME = /ORACLE/app/oracle/product/10.2.0/db_1)
+		  (ORACLE_HOME = /opt/ora10201/oracle/product/10.2.0/db_1)
 			  #(PROGRAM = extproc)
 		)
 		(SID_DESC =
 		  (SID_NAME = ora)
-		  (ORACLE_HOME = /ORACLE/app/oracle/product/10.2.0/db_1)
+		  (ORACLE_HOME = /opt/ora10201/oracle/product/10.2.0/db_1)
 		  #(PROGRAM = extproc)
 		)
 	  )
-	cd /ORACLE/app/oracle/product/10.2.0/db_1/bin
+	cd /opt/ora10201/oracle/product/10.2.0/db_1/bin
 	./lsnrctl stop
 	./lsnrctl start
 
