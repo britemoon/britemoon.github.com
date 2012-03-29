@@ -57,7 +57,7 @@ title: CentOS5静默安装Oracle10g
 
 **5.创建oracle需要的组和用户及安装目录**
 
-	mkdir -p /opt/ora10201/oracle
+	mkdir -p /opt/ora10201
 
 以上目录路径，根据要求变化。
 需要创建的用户和组
@@ -218,7 +218,7 @@ title: CentOS5静默安装Oracle10g
 	vi dbca.rsp 修改相关参数如下：
 	GDBNAME= "ora"
 	SID= "ora"
-	TEMPLATENAME= "/opt/ora10201/oracle/10.2.0/db_1/assistants/dbca/templates/General_Purpose.dbc"  模板的完全路径
+	TEMPLATENAME= "/opt/ora10201/oracle/product/10.2.0/db_1/assistants/dbca/templates/General_Purpose.dbc"  模板的完全路径
 	DB_UNIQUE_NAME= "ora"
 	INSTANCENAME= "ora" 实例名，如果需要使用Oracle Enterprise Manager，则还需要修改以下参数如下：
 	EMCONFIGURATION="LOCAL"   
