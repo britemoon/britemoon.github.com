@@ -1,0 +1,13 @@
+{"playlist":
+    [
+	{
+	    "0": {"src":"http://127.0.0.1/junk/paniq.mp3", "type":"audio/mp3"},
+	    "1": {"src":"http://127.0.0.1/junk/paniq.ogg", "type":"audio/ogg"},
+	    "config": {
+		"title": "风继续吹 - 张国荣",
+		"poster": "junk/cover.jpg"
+	    }
+	}
+
+    ]
+}
